@@ -1,0 +1,86 @@
+<div>
+  <section class="login p-fixed d-flex text-center bg-primary common-img-bg">
+    <!-- starts -->
+    <div class="auth-fluid">
+      <div class="row">
+        <div class="col-sm-12">
+          <!-- Authentication card start -->
+          <div class="login-card card-body auth-body">
+            <form class="md-float-material">
+              <!-- <div class="text-center">
+                <img style="width: 8vw; height: auto;" src="assets/images/auth/logoTHLSoft.png" alt="logo.png">
+              </div> -->
+              <div class="auth-box">
+                <div *ngIf="hideAll == false">
+                  <div class="text-center">
+                    <img style="width: 6em; height: auto; display: inline;" src="./assets/images/waiting-customer.png" alt="logo.png">
+                  </div>
+                  <p class="text-center" style="border: none; color: white;">Thank you for your booking at {{ticket.store.storeName}} Store.</p>
+                  <!-- <p *ngIf="hideAll == true" class="text-center" style="border: none; color: white;">Thank you for your waiting. Please check in at {{listName}}. Thank You!</p> -->
+                  <div class="text-center" style="width: 140px; height: 140px; background: #34B515; color: white; border-radius: 10px; margin: auto;">
+                    <div class="col-md-12" style="font-size: 4em;">
+                      {{ticket.number.waitingNumber}}
+                    </div>
+                    <div class="col-md-12">
+                      is your number
+                    </div>
+                  </div>
+                  <div class="col-md-12" style="margin-top: 2vh;">
+                    WAITING FOR CALLING
+                  </div>
+                  <div class="col-md-12" style="margin-top: 1vh; font-size: 0.8em;">
+                    OR
+                  </div>
+                  <div class="row m-t-10">
+                    <div class="col-md-12">
+                      <button type="button" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20" (click)="cancelBooking()"
+                        style="border-radius: 8px; background-color: red;">I WANT TO CANCEL!</button>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="cancel == true">
+                  <div class="text-center">
+                    <img style="width: 6em; height: auto; display: inline;" src="./assets/images/waiting-customer.png" alt="logo.png">
+                  </div>
+                  <p class="text-center" style="border: none; color: #47D9FE;">Thank you for your booking at {{ticket.store.storeName}} Store.</p>
+                  <div class="text-center" style="width: 140px; height: 140px; background: #E70014; color: white; border-radius: 10px; margin: auto;">
+                    <div class="col-md-12" style="font-size: 4em;">
+                      {{ticket.number.waitingNumber}}
+                    </div>
+                    <div class="col-md-12">
+                      is canceled!
+                    </div>
+                  </div>
+                  <div class="col-md-12" style="margin-top: 2vh;">
+                    Thank you for your booking. See you next time!
+                  </div>
+                </div>
+                <div *ngIf="success == true">
+                  <div class="text-center">
+                    <img style="width: 6em; height: auto; display: inline;" src="./assets/images/waiting-customer.png" alt="logo.png">
+                  </div>
+                  <p class="text-center" style="border: none; color: #47D9FE;">Thank you for your booking at {{ticket.store.storeName}} Store.</p>
+                  <!-- <div class="text-center" style="width: 140px; height: 140px; background: #E70014; color: white; border-radius: 10px; margin: auto;">
+                      <div class="col-md-12" style="font-size: 5em;">
+                        {{ticket.number.waitingNumber}}
+                      </div>
+                      <div class="col-md-12">
+                        is canceled!
+                      </div>
+                    </div> -->
+                  <div class="text-center">
+                    <img style="width: 6em; height: auto; display: inline;" src="./assets/images/cancel.png" alt="logo.png">
+                  </div>
+                  <p class="text-center" style="border: none; color: white; margin-top: 5vh;">Please go to {{ticket.store.storeName}} Store and check-in at tables: {{listName}}</p>
+                  <!-- <div class="col-md-12" style="margin-top: 2vh;">
+                      Thank you for your booking. See you next time!
+                    </div> -->
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
