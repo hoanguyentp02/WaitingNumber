@@ -13,7 +13,6 @@
   "private": true,
   "dependencies": {
     "@agm/core": "^1.0.0-beta.1",
-    "@angular/animations": "^4.2.4",
     "@angular/common": "^4.2.4",
     "@angular/compiler": "^4.2.4",
     "@angular/core": "^4.2.4",
@@ -31,6 +30,7 @@
     "jquery": "^3.2.1",
     "jquery-sparkline": "^2.4.0",
     "morris.js": "^0.5.0",
+    "ng-alert": "^1.0.5-alpha",
     "ng-bootstrap-modal": "^1.1.19",
     "ng-click-outside": "^2.4.1",
     "ng2-go-top-button": "^2.0.9",
@@ -41,6 +41,7 @@
     "ngx-chips": "^1.5.3",
     "ngx-international-phone-number": "^0.1.3",
     "ngx-intl-tel-input": "^1.0.6",
+    "ngx-loading": "^1.0.14",
     "raphael": "^2.2.7",
     "rxjs": "^5.4.2",
     "screenfull": "^3.3.1",

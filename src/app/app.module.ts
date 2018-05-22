@@ -19,6 +19,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TicketDetailComponent } from './home/ticket-detail/ticket-detail.component';
 import {APP_BASE_HREF} from '@angular/common';
 
+
 import { InternationalPhoneNumberModule } from 'ngx-international-phone-number';
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { InternationalPhoneNumberModule } from 'ngx-international-phone-number';
     HttpModule,
     ScrollModule,
     NgbModule.forRoot(),
-    InternationalPhoneNumberModule
+    InternationalPhoneNumberModule,
   ],
   exports: [ScrollModule],
   // providers: [

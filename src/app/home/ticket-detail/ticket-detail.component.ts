@@ -21,6 +21,7 @@ export class TicketDetailComponent implements OnInit {
   public listName: String = "";
   public success: boolean = false;
   public cancel: boolean = false;
+  public loading = false;
   constructor(private ticketServices: TicketService, private router: Router, 
     private location: LocationStrategy) {
 
@@ -65,13 +66,21 @@ export class TicketDetailComponent implements OnInit {
   }
 
   cancelBooking(){
+    this.loading = true;
     this.ticketServices.cancelBooking(this.ticket.number.id).then( (success) => {
+      this.loading = false;
       console.log("Thanh Cong", success)
       localStorage.removeItem('Ticket');
       this.hideAll =  true;
       this.cancel = true;
+      
       // this.location.back();
+      this.router.navigate(["/wno-booking/detail"]);
+      setTimeout((router: Router) => {
+        this.location.back();
+    }, 2000);
     }, (error) => {
+      this.loading = false;
       console.log("Loi roi: ", error)
     })
 

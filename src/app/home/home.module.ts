@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TicketComponent } from './ticket/ticket.component';
 import { HomeRoutes } from './home.routing';
 import { InternationalPhoneNumberModule } from 'ngx-international-phone-number';
+import { LoadingModule } from 'ngx-loading';
 
 @NgModule({
   imports: [
@@ -18,14 +19,15 @@ import { InternationalPhoneNumberModule } from 'ngx-international-phone-number';
     HttpModule,
     NgbModule,
     ReactiveFormsModule,
-    InternationalPhoneNumberModule
+    InternationalPhoneNumberModule,
+    LoadingModule,
   ],
   declarations: [
       TicketComponent,
       TicketDetailComponent
     ],
     providers: [
-      TicketService
+      TicketService,
     ]
 })
 
