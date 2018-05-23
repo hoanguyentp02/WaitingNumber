@@ -337,7 +337,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/home/popup/popup.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h3 style=\"font-weight: bold; margin-bottom: 2rem; color: orange\"><i class=\"fa fa-warning\" style=\"font-size:36px;color:orange\"></i>  Warning </h3>\r\n<p>Your request is invalid!</p>\r\n<div md-dialog-actions>\r\n  <button md-button style=\" background-color: #339bb5;\" class=\"popup-btn\" (click)=\"dialogRef.close()\">Close</button>\r\n</div>\r\n"
+module.exports = "<h3 style=\"font-weight: bold; margin-bottom: 2rem; color: orange\"><i class=\"fa fa-warning\" style=\"font-size:36px;color:orange\"></i>  Warning </h3>\r\n<p>Your request is invalid! Please make sure number of people larger than 0</p>\r\n<div md-dialog-actions>\r\n  <button md-button style=\" background-color: #339bb5;\" class=\"popup-btn\" (click)=\"dialogRef.close()\">Close</button>\r\n</div>\r\n"
 
 /***/ }),
 

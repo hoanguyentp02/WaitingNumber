@@ -35,6 +35,7 @@ export class TicketComponent implements OnInit {
   openDialog(){
     this.dialogRef = this.dialog.open(PopupComponent);
     this.dialogRef.afterClosed().subscribe((result) => {
+      
       console.log(result);
     })
   }
