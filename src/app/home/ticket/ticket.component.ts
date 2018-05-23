@@ -4,7 +4,8 @@ import { Component, OnInit} from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NgModel } from '@angular/forms';
 import { UUID } from 'angular2-uuid';
-import { AlertService } from 'ng-alert';
+import {MdDialog, MdDialogRef} from '@angular/material';
+import { PopupComponent } from '../popup/popup.component';
 
 @Component({
   selector: 'app-ticket',
@@ -17,8 +18,9 @@ export class TicketComponent implements OnInit {
   public tag_id: String;
   public uuid: String;
   public loading = false;
+  dialogRef: MdDialogRef<PopupComponent>;
 
-  constructor(private router: Router, private ticketService: TicketService, private routeActive: ActivatedRoute) {
+  constructor(private router: Router, private ticketService: TicketService, private routeActive: ActivatedRoute, public dialog: MdDialog) {
     this.uuid = UUID.UUID();
     console.log("UUID: ", this.uuid);
   }
@@ -27,6 +29,13 @@ export class TicketComponent implements OnInit {
     this.routeActive.params.subscribe((params) => {
       this.store_id = params.store_id;
       this.tag_id = params.tag_id;
+    })
+  }
+
+  openDialog(){
+    this.dialogRef = this.dialog.open(PopupComponent);
+    this.dialogRef.afterClosed().subscribe((result) => {
+      console.log(result);
     })
   }
 
@@ -99,8 +108,9 @@ export class TicketComponent implements OnInit {
         // "fcmtoken": ""
       }
       if (data.result == null || data.status == "FAILED") {
-        alert(data.message);
+        // alert(data.message);
         // this.alertService.success('Your alert message goes here', true, 'The title');
+        this.openDialog();
       } else {
         localStorage.setItem('Ticket', JSON.stringify(data.result));
         this.router.navigate(["/wno-booking/detail"]);

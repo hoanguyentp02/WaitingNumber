@@ -18,16 +18,18 @@ import { LocationStrategy, PathLocationStrategy, CommonModule, HashLocationStrat
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TicketDetailComponent } from './home/ticket-detail/ticket-detail.component';
 import {APP_BASE_HREF} from '@angular/common';
-
+import { MaterialModule} from '@angular/material';
 
 import { InternationalPhoneNumberModule } from 'ngx-international-phone-number';
+import { PopupComponent } from './home/popup/popup.component';
 @NgModule({
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
     BreadcrumbsComponent,
-    TitleComponent
+    TitleComponent,
+    PopupComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +41,7 @@ import { InternationalPhoneNumberModule } from 'ngx-international-phone-number';
     HttpModule,
     ScrollModule,
     NgbModule.forRoot(),
+    MaterialModule,
     InternationalPhoneNumberModule,
   ],
   exports: [ScrollModule],
@@ -52,6 +55,7 @@ import { InternationalPhoneNumberModule } from 'ngx-international-phone-number';
     AuthGuard,
     {provide: APP_BASE_HREF, useValue: '/wno'}
 ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [PopupComponent],
 })
 export class AppModule {}
