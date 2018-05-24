@@ -12,8 +12,9 @@ var AppSettings = /** @class */ (function () {
     }
     Object.defineProperty(AppSettings, "API_ENDPOINT", {
         get: function () {
-            return 'http://120.72.107.61:6780';
+            // return 'http://120.72.107.61:6780';
             // return 'http://192.168.100.22:6780';
+            return 'http://kopaya.thlsoft.com:6780';
         },
         enumerable: true,
         configurable: true
@@ -236,7 +237,6 @@ var TicketDetailComponent = /** @class */ (function () {
         this.loading = false;
         var ticketTemp = localStorage.getItem('Ticket');
         this.ticket = JSON.parse(ticketTemp);
-        console.log("ticket: ", this.ticket);
     }
     TicketDetailComponent.prototype.ngOnInit = function () {
         this.initializeWebSocketConnection();
@@ -251,7 +251,6 @@ var TicketDetailComponent = /** @class */ (function () {
             that.stompClient.subscribe(sub, function (message) {
                 var result = JSON.parse(message.body);
                 var lstTable = result.result.tables;
-                console.log(lstTable);
                 if (lstTable.length > 1) {
                     for (var index = 0; index < lstTable.length; index++) {
                         if (index == lstTable.length - 1) {
@@ -279,7 +278,6 @@ var TicketDetailComponent = /** @class */ (function () {
         this.loading = true;
         this.ticketServices.cancelBooking(this.ticket.number.id).then(function (success) {
             _this.loading = false;
-            console.log("Thanh Cong", success);
             localStorage.removeItem('Ticket');
             _this.hideAll = true;
             _this.cancel = true;
@@ -290,7 +288,6 @@ var TicketDetailComponent = /** @class */ (function () {
             }, 2000);
         }, function (error) {
             _this.loading = false;
-            console.log("Loi roi: ", error);
         });
         // this.confirmationService.create('', 'Are you sure?', this.settings)
         //     .subscribe((ans: ResolveEmit) => {
@@ -380,7 +377,6 @@ var TicketComponent = /** @class */ (function () {
         this.ticket = new __WEBPACK_IMPORTED_MODULE_0__models_ticket__["a" /* Ticket */]();
         this.loading = false;
         this.uuid = __WEBPACK_IMPORTED_MODULE_4_angular2_uuid__["UUID"].UUID();
-        console.log("UUID: ", this.uuid);
     }
     TicketComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -392,7 +388,6 @@ var TicketComponent = /** @class */ (function () {
     TicketComponent.prototype.openDialog = function () {
         this.dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_6__popup_popup_component__["a" /* PopupComponent */]);
         this.dialogRef.afterClosed().subscribe(function (result) {
-            console.log(result);
         });
     };
     TicketComponent.prototype.submit = function () {
@@ -441,10 +436,9 @@ var TicketComponent = /** @class */ (function () {
         this.ticket.contact = this.ticket.contact.toString().trim();
         this.ticket.store_id = this.store_id;
         this.ticket.tag_id = this.tag_id;
-        console.log(this.ticket);
         this.ticketService.getWaitingNumber(this.ticket).then(function (data) {
             _this.loading = false;
-            console.log(data);
+            localStorage.setItem('message', JSON.stringify(data.message));
             var result1 = {
             // "id": 937,
             // "storeId": "1234",
@@ -464,7 +458,7 @@ var TicketComponent = /** @class */ (function () {
             // "custId": 3,
             // "fcmtoken": ""
             };
-            if (data.result == null || data.status == "FAILED") {
+            if (data.status == "FAILED") {
                 // alert(data.message);
                 // this.alertService.success('Your alert message goes here', true, 'The title');
                 _this.openDialog();
@@ -474,7 +468,6 @@ var TicketComponent = /** @class */ (function () {
                 _this.router.navigate(["/wno-booking/detail"]);
             }
         }, function (error) {
-            console.log("loi roi: ", error);
             _this.loading = false;
         });
     };

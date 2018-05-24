@@ -316,7 +316,14 @@ var AuthGuard = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/home/popup/popup.component.css":
+/***/ "../../../../../src/app/home/popup/popup.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "\r\n<!-- <h3 style=\"font-weight: bold; margin-bottom: 2rem; color: orange\"><i class=\"fa fa-warning\" style=\"font-size:36px;color:orange\"></i>  Warning <hr  width=\"100%\" align=\"center\" style=\"border-top: 3px solid rgba(0,0,0,.1)\" /></h3> -->\r\n<p>{{message}}</p>\r\n<div md-dialog-actions>\r\n  <button md-button style=\" background-color: #3ab5d4; color: white; float: right\" class=\"popup-btn\" (click)=\"dialogRef.close()\">Close</button>\r\n</div>\r\n\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/home/popup/popup.component.scss":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -324,20 +331,13 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "input{\r\n    font-size: 16px;\r\n  }", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
 
 /*** EXPORTS FROM exports-loader ***/
 module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/app/home/popup/popup.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<h3 style=\"font-weight: bold; margin-bottom: 2rem; color: orange\"><i class=\"fa fa-warning\" style=\"font-size:36px;color:orange\"></i>  Warning </h3>\r\n<p>Your request is invalid! Please make sure number of people larger than 0</p>\r\n<div md-dialog-actions>\r\n  <button md-button style=\" background-color: #339bb5;\" class=\"popup-btn\" (click)=\"dialogRef.close()\">Close</button>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -362,12 +362,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var PopupComponent = /** @class */ (function () {
     function PopupComponent(dialogRef) {
         this.dialogRef = dialogRef;
+        var mes = localStorage.getItem('message');
+        this.message = JSON.parse(mes);
+        localStorage.removeItem('message');
     }
     PopupComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-popup',
             template: __webpack_require__("../../../../../src/app/home/popup/popup.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/home/popup/popup.component.css")]
+            styles: [__webpack_require__("../../../../../src/app/home/popup/popup.component.scss")]
         }),
         __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["c" /* MdDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["c" /* MdDialogRef */]) === "function" && _a || Object])
     ], PopupComponent);

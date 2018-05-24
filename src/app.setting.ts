@@ -5,9 +5,9 @@ export class AppSettings {
     public static SECRET_PWD_KEY: string = "newworld";
 
     public static get API_ENDPOINT(): string {
-        return 'http://120.72.107.61:6780';
+        // return 'http://120.72.107.61:6780';
         // return 'http://192.168.100.22:6780';
-
+        return 'http://kopaya.thlsoft.com:6780';
     }
 
     public static getHeadersAuthorization(): Headers {

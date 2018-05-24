@@ -27,7 +27,7 @@ export class TicketDetailComponent implements OnInit {
 
     let ticketTemp = localStorage.getItem('Ticket');
     this.ticket = JSON.parse(ticketTemp)
-    console.log("ticket: ", this.ticket);
+    
    }
 
   ngOnInit() {
@@ -43,7 +43,6 @@ export class TicketDetailComponent implements OnInit {
       that.stompClient.subscribe(sub, (message) => {
         let result = JSON.parse(message.body);
         let lstTable = result.result.tables
-        console.log(lstTable)
         if (lstTable.length > 1) {
           for (let index = 0; index < lstTable.length; index++) {
             if (index == lstTable.length - 1) {
@@ -69,7 +68,6 @@ export class TicketDetailComponent implements OnInit {
     this.loading = true;
     this.ticketServices.cancelBooking(this.ticket.number.id).then( (success) => {
       this.loading = false;
-      console.log("Thanh Cong", success)
       localStorage.removeItem('Ticket');
       this.hideAll =  true;
       this.cancel = true;
@@ -81,7 +79,6 @@ export class TicketDetailComponent implements OnInit {
     }, 2000);
     }, (error) => {
       this.loading = false;
-      console.log("Loi roi: ", error)
     })
 
     // this.confirmationService.create('', 'Are you sure?', this.settings)

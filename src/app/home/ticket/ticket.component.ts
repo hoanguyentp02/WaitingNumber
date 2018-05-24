@@ -22,7 +22,6 @@ export class TicketComponent implements OnInit {
 
   constructor(private router: Router, private ticketService: TicketService, private routeActive: ActivatedRoute, public dialog: MdDialog) {
     this.uuid = UUID.UUID();
-    console.log("UUID: ", this.uuid);
   }
 
   ngOnInit() {
@@ -35,8 +34,6 @@ export class TicketComponent implements OnInit {
   openDialog(){
     this.dialogRef = this.dialog.open(PopupComponent);
     this.dialogRef.afterClosed().subscribe((result) => {
-      
-      console.log(result);
     })
   }
 
@@ -85,10 +82,9 @@ export class TicketComponent implements OnInit {
     this.ticket.contact = this.ticket.contact.toString().trim();
     this.ticket.store_id = this.store_id;
     this.ticket.tag_id = this.tag_id;
-    console.log(this.ticket)
     this.ticketService.getWaitingNumber(this.ticket).then((data) => {
       this.loading = false;
-      console.log(data)
+      localStorage.setItem('message', JSON.stringify(data.message));
       let result1 = {
         // "id": 937,
         // "storeId": "1234",
@@ -108,7 +104,7 @@ export class TicketComponent implements OnInit {
         // "custId": 3,
         // "fcmtoken": ""
       }
-      if (data.result == null || data.status == "FAILED") {
+      if (data.status == "FAILED") {
         // alert(data.message);
         // this.alertService.success('Your alert message goes here', true, 'The title');
         this.openDialog();
@@ -117,7 +113,6 @@ export class TicketComponent implements OnInit {
         this.router.navigate(["/wno-booking/detail"]);
       }
     }, (error) => {
-      console.log("loi roi: ", error);
       this.loading = false;
     })
   }
