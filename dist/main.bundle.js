@@ -4,37 +4,9 @@ webpackJsonp(["main"],{
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./components/advance/advance.module": [
-		"../../../../../src/app/components/advance/advance.module.ts",
-		"advance.module"
-	],
-	"./components/basic/basic.module": [
-		"../../../../../src/app/components/basic/basic.module.ts",
-		"basic.module"
-	],
-	"./components/forms/forms.module": [
-		"../../../../../src/app/components/forms/forms.module.ts",
-		"forms.module"
-	],
-	"./components/tables/bootstrap-table/bootstrap-table.module": [
-		"../../../../../src/app/components/tables/bootstrap-table/bootstrap-table.module.ts",
-		"bootstrap-table.module"
-	],
-	"./dashboard/dashboard.module": [
-		"../../../../../src/app/dashboard/dashboard.module.ts",
-		"dashboard.module"
-	],
 	"./home/home.module": [
 		"../../../../../src/app/home/home.module.ts",
 		"home.module"
-	],
-	"./map/map.module": [
-		"../../../../../src/app/map/map.module.ts",
-		"map.module"
-	],
-	"./simple-page/simple-page.module": [
-		"../../../../../src/app/simple-page/simple-page.module.ts",
-		"simple-page.module"
 	]
 };
 function webpackAsyncContext(req) {
@@ -207,28 +179,6 @@ var AppRoutes = [
                 path: '',
                 redirectTo: 'dashboard',
                 pathMatch: 'full'
-            },
-            {
-                path: 'dashboard',
-                loadChildren: './dashboard/dashboard.module#DashboardModule'
-            }, {
-                path: 'basic',
-                loadChildren: './components/basic/basic.module#BasicModule'
-            }, {
-                path: 'advance',
-                loadChildren: './components/advance/advance.module#AdvanceModule'
-            }, {
-                path: 'forms',
-                loadChildren: './components/forms/forms.module#FormsModule'
-            }, {
-                path: 'bootstrap-table',
-                loadChildren: './components/tables/bootstrap-table/bootstrap-table.module#BootstrapTableModule',
-            }, {
-                path: 'map',
-                loadChildren: './map/map.module#MapModule',
-            }, {
-                path: 'simple-page',
-                loadChildren: './simple-page/simple-page.module#SimplePageModule'
             }
         ]
     },
